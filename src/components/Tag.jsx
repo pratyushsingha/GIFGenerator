@@ -39,10 +39,14 @@ const Tag = ({ API_KEY }) => {
         searchGif()
     }
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
 
     return (
         <div className='box-content h-50 w-50 p-4 border-4 bg-yellow-500 text-center'>
-            <p className='font-bold'>{`Random ${search} GIF`}</p>
+            <p className='font-bold'>{`Random ${capitalizeFirstLetter(search)} GIF`}</p>
             {loading ? (<Spinner />) : <img className='mt-3 h-64' src={gif} height="400" width="400" alt='gif' />}
             <input type="text" className='bg-white text-black w-full p-2 my-2 rounded-3xl' onChange={changeHandler} value={search} />
             <button className='bg-white text-black w-full p-2 rounded-md font-semibold' onClick={clickHandler}>GENERATE</button>
